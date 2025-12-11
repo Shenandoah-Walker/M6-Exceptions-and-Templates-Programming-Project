@@ -2,8 +2,18 @@
 #define PRODUCTIONWORKER_H
 
 #include "Employee.h"
+#include <stdexcept>
 
 using namespace std;
+
+class InvalidShift : public std::exception {
+
+public:
+    const char* what() const noexcept override {
+    return "Invalid Shift: Shift must be either 1 or 2 (1 for day shift, 2 for night shift).";
+    }
+
+};
 
 class ProductionWorker : public Employee {
     private:
