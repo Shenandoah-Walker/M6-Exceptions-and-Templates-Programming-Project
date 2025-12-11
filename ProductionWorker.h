@@ -18,7 +18,7 @@ public:
 class InvalidHourlyPayRate : public std::exception {
 
 public:
-    const char* what() const noexcept override
+    const char* what() const noexcept override {
     return "Invalid Hourly Pay Rate: Hourly Pay Rate cannot be negative.";
     }
 };
