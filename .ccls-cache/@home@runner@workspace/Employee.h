@@ -3,8 +3,18 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
+
+class InvalidEmployeeNumber : public std::exception {
+
+public:
+    const char* what() const noexcept override {
+    return "Invalid Employee Number: Employee Number must be between 0 and 9999.";
+    }
+
+};
 
 class Employee {
 
