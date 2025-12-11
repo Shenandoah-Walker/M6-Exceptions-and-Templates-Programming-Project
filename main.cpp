@@ -89,13 +89,26 @@ int main() {
           }
          
        }
+         catch (Employee::InvalidEmployeeNumber) {
+            cout << "Invalid Employee Number. Please try again." << endl;
+        }
+        catch (ProductionWorker::InvalidShift) {
+            cout << "Invalid Shift. Please try again." << endl;
+        }
+        catch (ProductionWorker::InvalidHourlyPayRate) {
+            cout << "Invalid Hourly Pay Rate. Please try again." << endl;
+        }
+
+      else if (choice == 4) {
+          cout << "Ending Program" << endl;
+          return 0;
+      }
+
 
        
        }
     };
 
 
-  
-return 0;
 };
 
