@@ -32,6 +32,11 @@ int main() {
             cin >> choice;
         }
 
+        if (choice == 4) {
+            cout << "Ending Program" << endl;
+            return 0;
+        }
+
        try {
 
          if (choice == 1) {
@@ -48,6 +53,7 @@ int main() {
             cin >> hourlyPayRate;
 
             ProductionWorker ProductionWorker1(name, employeeNumber, hireDate, shift, hourlyPayRate);
+            ProductionWorker1.printProductionWorker();
 
             } 
 
@@ -65,6 +71,7 @@ int main() {
             cin >> annualProductionBonus;
 
             ShiftSupervisor ShiftSupervisor1(name, employeeNumber, hireDate, annualSalary, annualProductionBonus);
+            ShiftSupervisor1.printShiftSupervisor();
           }
 
           else if (choice == 3) {
@@ -86,29 +93,23 @@ int main() {
             cout << "Attended Training Hours: ";
             cin >> attendedTrainingHours;
             TeamLeader TeamLeader1(name, employeeNumber, hireDate, shift, hourlyPayRate, monthlyBonus, requiredTrainingHours, attendedTrainingHours);
+            TeamLeader1.printTeamLeader();
           }
          
        }
-         catch (Employee::InvalidEmployeeNumber) {
+         catch (InvalidEmployeeNumber) {
             cout << "Invalid Employee Number. Please try again." << endl;
         }
-        catch (ProductionWorker::InvalidShift) {
+        catch (InvalidShift) {
             cout << "Invalid Shift. Please try again." << endl;
         }
-        catch (ProductionWorker::InvalidHourlyPayRate) {
+        catch (InvalidHourlyPayRate) {
             cout << "Invalid Hourly Pay Rate. Please try again." << endl;
         }
-
-      else if (choice == 4) {
-          cout << "Ending Program" << endl;
-          return 0;
-      }
-
 
        
        }
     };
 
 
-};
 
