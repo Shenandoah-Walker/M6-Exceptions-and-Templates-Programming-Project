@@ -12,7 +12,7 @@ Employee::Employee() {
 
 Employee::Employee(string name, int employeeNumber, string hireDate) {
     this->name = name;
-    this->employeeNumber = employeeNumber;
+    setEmployeeNumber(employeeNumber);
     this->hireDate = hireDate;
 };
 
@@ -33,6 +33,9 @@ void Employee::setName(string name) {
 }
 
 void Employee::setEmployeeNumber(int employeeNumber) {
+    if (employeeNumber < 0 || employeeNumber > 9999) {
+        throw InvalidEmployeeNumber();
+    }
     this->employeeNumber = employeeNumber;
 }
 
