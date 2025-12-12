@@ -18,6 +18,7 @@ int main() {
     string name = "Default", hireDate = "0/0/0000";
     double hourlyPayRate = 0.0, monthlyBonus = 0.0, annualSalary = 0.0, annualProductionBonus = 0.0;
 
+    //Prompt the user to select the type of employee they would like to enter and store their choice in the variable choice. The program will continue to prompt the user until they select option 4 to exit the program.
     while (choice != 4) {
         cout << "Please select the type of employee you would like to enter." << endl;
         cout << "1. Production Worker" << endl;
@@ -27,17 +28,17 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-
+    //If the user enters an invalid choice, display an error message and prompt the user to enter their choice again.
         if (choice < 1 || choice > 4) {
             cout << "Invalid choice. Please try again." << endl;
             continue;
         }
-
+    //If the user selects option 4 to exit the program, display a message indicating that the program is ending and break out of the loop.
         if (choice == 4) {
             cout << "Ending Program" << endl;
             break;
         }
-
+        //If the user enters a valid choice, prompt the user to enter the employee's information and store their input in the appropriate variables. If the user enters valid information, create an object of the selected employee type and display the employee's information that the user entered.
         bool validInput = false;
         while (!validInput) {
             try {
@@ -107,6 +108,7 @@ int main() {
                   }
 
                }
+                //If th user enters an invalid employee number, shift, or hourly pay rate, display an error message and prompt the user to enter the employee's information again.
                  catch (InvalidEmployeeNumber) {
                     cout << "Invalid Employee Number. Employee number must be between 0 and 9999. Please enter the employee's information again." << endl;
                     cout << endl;
