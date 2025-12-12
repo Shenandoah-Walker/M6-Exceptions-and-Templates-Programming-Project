@@ -18,31 +18,59 @@ int main() {
   //Test constructors
   cout << "----- Test constructors -----" << endl;
 
-  //Test default constructor
+  //Test default int constructor
   cout << "From default constructor: Array of size 10" << endl;
-  NumberArray array1;
-  array1.printArray();
+  NumberArray<int> DefaultIntArray;
+  DefaultIntArray.printArray();
+  cout << endl;
+
+  //Test default double constructor
+  cout << "From default constructor: Array of size 10" << endl;
+  NumberArray<double> DefaultDoubleArray;
+  DefaultDoubleArray.printArray();
   cout << endl;
 
 
   //Test constructor with parameters
-  cout << "From constructor with parameters: Array of size 15" << endl;
-  NumberArray array2(15);
+    
+  //Test int constructor
+  cout << "From constructor with parameters: Integer array of size 15" << endl;
+  NumberArray<int> ParameterIntArray(15);
   for (int i = 0; i < 15; i++) {
-    array2.setNumber(i, dist(engine));
+    ParameterIntArray.setNumber(i, dist(engine));
   }
-  array2.printArray();
+  ParameterIntArray.printArray();
+  cout << endl;
+
+  //Test double constructor
+  cout << "From constructor with parameters: Double array of size 15" << endl;
+  NumberArray<double> ParameterDoubleArray(15);
+  for (int i = 0; i < 15; i++) {
+    ParameterDoubleArray.setNumber(i, dist(engine));
+  }
+  ParameterDoubleArray.printArray();
   cout << endl;
 
   //Test mutator
   cout << "----- Test mutator -----" << endl;
-  cout << "Array filled with numbers:" << endl;
+    
+  //Test int mutator
+  cout << "Integer array filled with numbers:" << endl;
   for (int i = 0; i < 15; i++) {
-    array2.setNumber(i, dist(engine));
+    ParameterIntArray.setNumber(i, dist(engine));
   }
-  array2.printArray();
+  ParameterIntArray.printArray();
   cout << endl;
 
+  //Test double mutator
+  cout << "Double array filled with numbers:" << endl;
+  for (int i = 0; i < 15; i++) {
+    ParameterDoubleArray.setNumber(i, dist(engine));
+  }
+  ParameterDoubleArray.printArray();
+  cout << endl;
+
+  //Test out of bounds mutator
   cout << "Trying to set a number with an out of bounds index (20):" << endl;
   array2.setNumber(20, 25.7);
   cout << endl;
