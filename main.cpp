@@ -53,6 +53,7 @@ int main() {
 
   //Test mutator
   cout << "----- Test mutator -----" << endl;
+  cout << endl;
     
   //Test int mutator
   cout << "Integer array filled with numbers:" << endl;
@@ -72,17 +73,79 @@ int main() {
 
   //Test out of bounds mutator
   cout << "Trying to set a number with an out of bounds index (20):" << endl;
-  array2.setNumber(20, 25.7);
-  cout << endl;
+    try {
+        ParameterIntArray.setNumber(20, 25);
+        } catch (const out_of_range& e) {
+            cout << "Integer Array... " << endl;
+            cout << e.what() << endl;
+            cout << endl;
+        }
+    try {
+        ParameterDoubleArray.setNumber(20, 25.0);
+        } catch (const out_of_range& e) {
+            cout << "Double Array... " << endl;
+            cout << e.what() << endl;
+            cout << endl;
+        }
 
   //Test accessors
-  cout << "----- Test accessors _____" << endl;
-  cout << "Access item at index 5: " << array2.getNumber(5) << endl;
-  cout << "Access item at index 20 (out of bounds): " << array2.getNumber(20) << endl;
-  cout << "The minimum value in the array is: " << array2.findMin() << endl;
-  cout << "The maximum value in the array is: " << array2.findMax() << endl;
-  cout << "The average of the values in the array is: " << array2.calcAverage() << endl;
+  cout << "----- Test accessors -----" << endl;
+  cout << endl;
+  //Test int accessor for getNumber
+  try{
+  cout << "Access integer at index 5: " << ParameterIntArray.getNumber(5) << endl;
+  } catch (const out_of_range& e) {
+            cout << "Integer Array... " << endl;
+            cout << e.what() << endl;
+            cout << endl;
+        }
 
+  //Test double accessor for getNumber
+  try {
+    cout << "Access double item at index 5: " << ParameterDoubleArray.getNumber(5) << endl;
+  } catch (const out_of_range& e) {
+    cout << "Double array ... " << e.what() << endl;
+    cout << endl;
+  }
+
+  cout << "Trying to access a number with an out of bounds index (20):" << endl;
+  try {
+      cout << ParameterIntArray.getNumber(20) << endl;
+      cout << endl;
+  } catch (const out_of_range& e) {
+      cout << "Integer array ... " << e.what() << endl;
+      cout << endl;
+  }
+  try {
+      cout << ParameterDoubleArray.getNumber(20) << endl;
+      cout << endl;
+  } catch (const out_of_range& e) {
+      cout << "Double array ... " << e.what() << endl;
+      cout << endl;
+  }
+  
+  cout << "The minimum value in the integer array is: " << ParameterIntArray.findMin() << endl;
+  cout << "The maximum value in the integer array is: " << ParameterIntArray.findMax() << endl;
+  cout << "The average of the values in the integer array is: " << ParameterIntArray.calcAverage() << endl;
   cout << endl;
 
+  cout << "The minimum value in the double array is: " << ParameterDoubleArray.findMin() << endl;
+  cout << "The maximum value in the double array is: " << ParameterDoubleArray.findMax() << endl;
+  cout << "The average of the values in the double array is: " << ParameterDoubleArray.calcAverage() << endl;
+  cout << endl;
+
+  cout << "----- Print arrays -----" << endl;
+  cout << endl;
+  cout << "Integer array:" << endl;
+  ParameterIntArray.printArray();
+  cout << endl;
+  cout << "Double array:" << endl;
+  ParameterDoubleArray.printArray();
+  cout << endl;
+
+  cout << "----- Test destructor -----" << endl;
+  cout << endl;
+  cout << "Exiting program, destructor will be called to free memory." << endl;
+
+  return 0;
 }

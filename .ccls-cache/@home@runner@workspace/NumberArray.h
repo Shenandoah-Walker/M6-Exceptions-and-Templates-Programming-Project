@@ -6,6 +6,7 @@ Class purpose: This class allows the user to create an array of floating point n
 #define NUMBERARRAY_H
 #include <iostream>
 #include <iomanip>
+#include <stdexcept>
 
 using namespace std;
 
@@ -15,22 +16,21 @@ class NumberArray {
 private:
   T *array;
   int size; 
-  static const int MAX_SIZE = 10;
   static const int MIN_SIZE = 1;
-  static const int DEFAULT_VALUE = 10000;
+  static const int MAX_SIZE = 10;
 
 public:
   /*
   Constructor: NumberArray
   Purpose: This constructor initializes the array to the default size of 10. If the user specifies a size, the
-  constructor will initialize the array to that size. If the user specifies a size that is less than 1 or greater
-  than 10, the constructor will initialize the array to the default size of 10.
+  constructor will initialize the array to that size.
   Parameters:
    - int size: The size of the array. The default value is 10.
   Returns: None
   Preconditions: None
   Postconditions: The array is initialized to the specified size or the default size of 10.
   */
+
   NumberArray(int arraySize = MAX_SIZE) {
     size = arraySize;
     array = new T[size];
@@ -61,13 +61,10 @@ public:
   */
   void setNumber(int index, T value) {
       if (index < 0 || index >= size) {
-      cout << "The index is out of the bounds of the array, number not stored." << endl; 
-      }
-      else{
-        array[index] = value;
-        }
+      throw out_of_range("Error: Index out of bounds in setNumber.");
     }
-
+      array[index] = value;
+  }
   /*
   Member function: getNumber
   Purpose: This function gets the value of an element in the array.
@@ -77,10 +74,9 @@ public:
   Preconditions: The array has been initialized.
   Postconditions: The value of the element at the specified index is returned.
   */
-  int getNumber(int index) {
+  T getNumber(int index) {
     if (index < 0 || index >= size) {
-      cout << "Error: Index out of bounds. This function will now return 10000." << endl;
-      return DEFAULT_VALUE;
+      throw out_of_range("Error: Index out of bounds in getNumber.");
     }
     return array[index];
 
