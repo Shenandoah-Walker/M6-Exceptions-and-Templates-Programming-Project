@@ -6,14 +6,14 @@
 using namespace std;
 
 ProductionWorker::ProductionWorker() : Employee() {
-    shift = 0;
+    shift = 1;
     hourlyPayRate = 0.0;
 };
 
 ProductionWorker::ProductionWorker(string name, int employeeNumber, string hireDate, int shift, double hourlyPayRate) : Employee(name, employeeNumber, hireDate) {
 
-    this->shift = shift;
-    this->hourlyPayRate = hourlyPayRate;
+    setShift(shift);
+    setHourlyPayRate(hourlyPayRate);
 
 };
 
@@ -26,10 +26,16 @@ double ProductionWorker::getHourlyPayRate() const {
 };
 
 void ProductionWorker::setShift(int shift) {
+    if (shift != 1 && shift != 2) {
+        throw InvalidShift();
+    }
     this->shift = shift;
 };
 
 void ProductionWorker::setHourlyPayRate(double hourlyPayRate) {
+    if (hourlyPayRate < 0) {
+        throw InvalidHourlyPayRate();
+    }
     this->hourlyPayRate = hourlyPayRate;
 };
 
