@@ -108,7 +108,7 @@ int main() {
                   }
 
                }
-                //If th user enters an invalid employee number, shift, or hourly pay rate, display an error message and prompt the user to enter the employee's information again.
+    //If the user enters an invalid employee number, shift, or hourly pay rate, display an error message and prompt the user to enter the employee's information again.
                  catch (InvalidEmployeeNumber) {
                     cout << "Invalid Employee Number. Employee number must be between 0 and 9999. Please enter the employee's information again." << endl;
                     cout << endl;
