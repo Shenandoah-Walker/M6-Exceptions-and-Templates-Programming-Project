@@ -16,16 +16,14 @@ class NumberArray {
 private:
   T *array;
   int size; 
-  static const int DEFAULT_SIZE = 10;
   static const int MIN_SIZE = 1;
-  static const int MAX_SIZE = 20;
+  static const int MAX_SIZE = 10;
 
 public:
   /*
   Constructor: NumberArray
   Purpose: This constructor initializes the array to the default size of 10. If the user specifies a size, the
-  constructor will initialize the array to that size. If the user specifies a size that is less than 1 or greater
-  than 10, the constructor will initialize the array to the default size of 10.
+  constructor will initialize the array to that size.
   Parameters:
    - int size: The size of the array. The default value is 10.
   Returns: None
@@ -33,7 +31,7 @@ public:
   Postconditions: The array is initialized to the specified size or the default size of 10.
   */
 
-  NumberArray(int arraySize = DEFAULT_SIZE) {
+  NumberArray(int arraySize = MAX_SIZE) {
     size = arraySize;
     array = new T[size];
     for (int i = 0; i < size; i++) {
@@ -64,9 +62,9 @@ public:
   void setNumber(int index, T value) {
       if (index < 0 || index >= size) {
       throw out_of_range("Error: Index out of bounds in setNumber.");
-      array[index] = value;
     }
-
+      array[index] = value;
+  }
   /*
   Member function: getNumber
   Purpose: This function gets the value of an element in the array.
