@@ -11,7 +11,18 @@ ShiftSupervisor::ShiftSupervisor() : Employee() {
 }
 
 ShiftSupervisor::ShiftSupervisor(string name, int employeeNumber, string hireDate, double annualSalary, double annualProductionBonus) : Employee(name, employeeNumber, hireDate) {
+    while (annualSalary < 0) {
+        cout << "Invalid annual salary. Annual salary cannot be negative." << endl;
+        cout << "Please enter a valid annual salary: ";
+        cin >> annualSalary;
+    }
     this->annualSalary = annualSalary;
+
+   while (annualProductionBonus < 0) {
+       cout << "Invalid annual production bonus. Annual production bonus cannot be negative." << endl;
+       cout << "Please enter a valid annual production bonus: ";
+       cin >> annualProductionBonus;
+   }
     this->annualProductionBonus = annualProductionBonus;
 }
 

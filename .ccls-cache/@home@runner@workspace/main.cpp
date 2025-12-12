@@ -24,6 +24,8 @@ int main() {
         cout << "2. Shift Supervisor" << endl;
         cout << "3. Team Leader" << endl;
         cout << "4. Exit" << endl;
+        cout << endl;
+        cout << endl;
         cin >> choice;
 
 
@@ -34,7 +36,7 @@ int main() {
 
         if (choice == 4) {
             cout << "Ending Program" << endl;
-            return 0;
+            break;
         }
 
        try {
@@ -99,16 +101,26 @@ int main() {
        }
          catch (InvalidEmployeeNumber) {
             cout << "Invalid Employee Number. Please try again." << endl;
+            cin >> employeeNumber;
+            ProductionWorker ProductionWorker1(name, employeeNumber, hireDate, shift, hourlyPayRate);
+            ProductionWorker1.printProductionWorker();
         }
         catch (InvalidShift) {
             cout << "Invalid Shift. Please try again." << endl;
+            cin >> shift;
+            ProductionWorker ProductionWorker1(name, employeeNumber, hireDate, shift, hourlyPayRate);
+            ProductionWorker1.printProductionWorker();
         }
         catch (InvalidHourlyPayRate) {
             cout << "Invalid Hourly Pay Rate. Please try again." << endl;
+            cin >> hourlyPayRate;
+            ProductionWorker ProductionWorker1(name, employeeNumber, hireDate, shift, hourlyPayRate);
         }
 
        
        }
+
+       return 0;
     };
 
 
