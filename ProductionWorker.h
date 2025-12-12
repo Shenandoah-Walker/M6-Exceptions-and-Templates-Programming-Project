@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//This class is used to throw an exception when the shift is invalid. The shift must be either 1 or 2. If it is not, this exception is thrown, printing a custom error message.
+
 class InvalidShift : public std::exception {
 
 public:
@@ -15,6 +17,7 @@ public:
 
 };
 
+//This class is used to throw an exception when the hourly pay rate is invalid. The hourly pay rate must be greater than 0. If it is not, this exception is thrown, printing a custom error message.
 class InvalidHourlyPayRate : public std::exception {
 
 public:

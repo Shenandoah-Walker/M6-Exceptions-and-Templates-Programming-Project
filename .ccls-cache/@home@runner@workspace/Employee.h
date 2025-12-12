@@ -7,6 +7,8 @@
 
 using namespace std;
 
+//This class is used to throw an exception when the employee number is invalid. The employee number must be between 0 and 9999. If it is not, this exception is thrown, printing a custom error message.
+
 class InvalidEmployeeNumber : public std::exception {
 
 public:
